@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import { 
-  AdMob, AdOptions, BannerAdOptions, BannerAdSize, BannerAdPosition, AdLoadInfo, BannerAdPluginEvents, 
-  AdMobBannerSize, InterstitialAdPluginEvents } from '@capacitor-community/admob';
-import { environment } from 'src/environments/environment';
+  AdMob,  BannerAdOptions, BannerAdSize, BannerAdPosition, AdLoadInfo, BannerAdPluginEvents, 
+  AdMobBannerSize } from '@capacitor-community/admob';
 
 
 @Injectable({
@@ -17,20 +16,6 @@ export class AdsServiceService {
   }
   
 
-  interstitial(){
-    AdMob.addListener(InterstitialAdPluginEvents.Loaded, (info: AdLoadInfo) => {
-      // Subscribe prepared interstitial
-    });
-  
-    const options: AdOptions = {
-      adId: 'ca-app-pub-9669223673392187/7675824744',
-      // isTesting: true
-      // npa: true
-    };
-    AdMob.prepareInterstitial(options);
-    AdMob.showInterstitial();
-  }
-  
   banner() {
     AdMob.addListener(BannerAdPluginEvents.Loaded, () => {
       // Subscribe Banner Event Listener
@@ -41,7 +26,7 @@ export class AdsServiceService {
     });
   
     const options: BannerAdOptions = {
-      adId: environment.id_banner,
+      adId: "ca-app-pub-9669223673392187/3914778059",
       adSize: BannerAdSize.BANNER,
       position: BannerAdPosition.BOTTOM_CENTER,
       margin: 0,
